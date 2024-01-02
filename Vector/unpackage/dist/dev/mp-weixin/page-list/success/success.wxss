@@ -1,0 +1,25 @@
+
+.img {
+	display: flex;
+	/*设置为flex布局*/
+	justify-content: center;
+	/*水平居中*/
+}
+.codeImg{
+	display: flex;
+	/*设置为flex布局*/
+	justify-content: center;
+	/*水平居中*/
+}
+.txt {
+	text-align: center;
+}
+.btn {
+	display: flex;
+	justify-content: center;
+	/* margin-top: 30rpx; */
+}
+.btn-one {
+	margin: 30rpx;
+}
+

@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "添加选项",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#427BEE",
+  "usingComponents": {
+    "uni-icons": "/uni_modules/uni-icons/components/uni-icons/uni-icons",
+    "u--textarea": "/uni_modules/uview-ui/components/u--textarea/u--textarea"
+  }
+}

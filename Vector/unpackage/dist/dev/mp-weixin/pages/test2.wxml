@@ -1,0 +1,1 @@
+<view><button type="primary" data-event-opts="{{[['tap',[['test',['$event']]]]]}}" bindtap="__e">打开</button></view>

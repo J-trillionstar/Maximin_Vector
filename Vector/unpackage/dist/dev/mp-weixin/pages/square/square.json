@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "决策广场",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#427BEE",
+  "usingComponents": {
+    "uni-search-bar": "/uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar",
+    "u-picker": "/uni_modules/uview-ui/components/u-picker/u-picker",
+    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon"
+  }
+}

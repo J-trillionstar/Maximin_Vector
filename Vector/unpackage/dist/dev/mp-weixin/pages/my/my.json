@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "个人资料",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#427BEE",
+  "usingComponents": {
+    "uni-popup": "/uni_modules/uni-popup/components/uni-popup/uni-popup",
+    "u--textarea": "/uni_modules/uview-ui/components/u--textarea/u--textarea"
+  }
+}

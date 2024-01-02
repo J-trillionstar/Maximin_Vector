@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "回收站",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#427BEE",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "uni-popup": "/uni_modules/uni-popup/components/uni-popup/uni-popup"
+  }
+}

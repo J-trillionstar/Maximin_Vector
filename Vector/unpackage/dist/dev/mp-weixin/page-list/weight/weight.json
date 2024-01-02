@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "分配权值",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#427BEE",
+  "usingComponents": {
+    "uni-search-bar": "/uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar",
+    "u-cell": "/uni_modules/uview-ui/components/u-cell/u-cell",
+    "u-number-box": "/uni_modules/uview-ui/components/u-number-box/u-number-box"
+  }
+}

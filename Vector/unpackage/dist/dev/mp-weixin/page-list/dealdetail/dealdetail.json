@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "处理",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#427BEE",
+  "usingComponents": {
+    "uni-icons": "/uni_modules/uni-icons/components/uni-icons/uni-icons",
+    "u--text": "/uni_modules/uview-ui/components/u--text/u--text",
+    "u--input": "/uni_modules/uview-ui/components/u--input/u--input",
+    "uni-pagination": "/uni_modules/uni-pagination/components/uni-pagination/uni-pagination",
+    "uni-popup": "/uni_modules/uni-popup/components/uni-popup/uni-popup"
+  }
+}

@@ -1,0 +1,189 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/home/home",
+			"style": {
+				"navigationBarTitleText": "决策小程序",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor": "#427BEE"
+			}
+		},
+		{
+			"path": "pages/square/square",
+			"style": {
+				"navigationBarTitleText": "决策广场",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor": "#427BEE"
+			}
+		},
+		{
+			"path": "pages/my/my",
+			"style": {
+				"navigationBarTitleText": "个人资料",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor": "#427BEE"
+			}
+		},
+		{
+			"path": "page-list/peading",
+			"style": {
+				"navigationBarTitleText": "待我处理",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor": "#427BEE",
+				"enablePullDownRefresh":true
+			}
+		},
+		{
+			"path": "page-list/addvote",
+			"style": {
+				"navigationBarTitleText": "创建决策",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor": "#427BEE"
+			}
+		}, 
+		{
+			"path": "page-list/addoption/addoption",
+			"style": {
+				"navigationBarTitleText": "添加选项",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor": "#427BEE"
+			}
+		}, 
+		{
+			"path": "page-list/setting/setting",
+			"style": {
+				"navigationBarTitleText": "设置",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor": "#427BEE"
+			}
+		}, 
+		{
+			"path": "page-list/changgepassword/changgepassword",
+			"style": {
+				"navigationBarTitleText": "修改密码",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor": "#427BEE"
+			}
+		}, 
+		{
+			"path": "page-list/changgepnone/changgepnone",
+			"style": {
+				"navigationBarTitleText": "绑定手机",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor": "#427BEE"
+			}
+		}, 
+		{
+			"path": "page-list/draft/draft",
+			"style": {
+				"navigationBarTitleText": "草稿箱",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor": "#427BEE",
+				"enablePullDownRefresh":true
+			}
+		}, 
+		{
+			"path": "page-list/login/login",
+			"style": {
+				"navigationBarTitleText": "决策小程序",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor": "#427BEE"
+			}
+		},
+		{
+			"path": "page-list/bin/bin",
+			"style": {
+				"navigationBarTitleText": "回收站",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor": "#427BEE",
+				"enablePullDownRefresh":true
+			}
+		},
+		{
+			"path":"page-list/success/success",
+			"style": {
+				"navigationBarTitleText": "发布成功",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor": "#427BEE",
+				"enablePullDownRefresh":true
+			}
+		},
+		{
+			"path":"page-list/votedetail/votedetail",
+			"style": {
+				"navigationBarTitleText": "决策",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor": "#427BEE"
+			}
+		},
+		{
+			"path":"page-list/dealdetail/dealdetail",
+			"style": {
+				"navigationBarTitleText": "处理",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor": "#427BEE"
+			}
+		},
+		{
+			"path":"page-list/weight/weight",
+			"style": {
+				"navigationBarTitleText": "分配权值",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor": "#427BEE"
+			}
+		},
+		{
+			"path":"page-list/manage/manage",
+			"style": {
+				"navigationBarTitleText": "决策管理",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor": "#427BEE",
+				"enablePullDownRefresh":true
+			}
+		},
+		{
+			"path":"page-list/join/join",
+			"style": {
+				"navigationBarTitleText": "我的参与",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor": "#427BEE",
+				"enablePullDownRefresh":true
+			}
+		},
+		{
+			"path": "pages/test"
+		},
+		{
+			"path": "pages/test2"
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"selectedColor": "#1296db",
+		"list": [{
+				"pagePath": "pages/home/home",
+				"text": "首页",
+				"iconPath": "static/tabar/index.png",
+				"selectedIconPath": "static/tabar/indexed.png"
+			},
+			{
+				"pagePath": "pages/square/square",
+				"text": "广场",
+				"iconPath": "static/tabar/map.png",
+				"selectedIconPath": "static/tabar/map1.png"
+			},
+			{
+				"pagePath": "pages/my/my",
+				"text": "我的",
+				"iconPath": "static/tabar/mine.png",
+				"selectedIconPath": "static/tabar/mineed.png"
+			}
+
+		]
+	}
+}

@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "待我处理",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#427BEE",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "u-tabs": "/uni_modules/uview-ui/components/u-tabs/u-tabs"
+  }
+}
