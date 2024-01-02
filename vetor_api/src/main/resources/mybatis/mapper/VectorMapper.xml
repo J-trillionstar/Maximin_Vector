@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trillionstar.mapper.VectorMapper">
+    <!--
+        select 查询语句
+        id 方法名
+        resultType 返回类型
+    -->
+    <select id="queryByParams" resultType="com.trillionstar.entity.Vector" parameterType="map">
+        select * from vetor.vector
+        <where>
+            <if test="v_vectorid != null">
+                and v_vectorid = #{v_vectorid}
+            </if>
+            <if test="v_name != null">
+                and v_name = #{v_name}
+            </if>
+            <if test="v_islive != null">
+                and v_islive = #{v_islive}
+            </if>
+            <if test="v_isanyo != null">
+                and v_isanyo = #{v_isanyo}
+            </if>
+            <if test ="v_ispublic !=null">
+                and v_ispublic = #{v_ispublic}
+            </if>
+            <if test="v_status != null">
+                and v_status = #{v_status}
+            </if>
+            <if test="v_isbin != null">
+                and v_isbin = #{v_isbin}
+            </if>
+        </where>
+    </select>
+
+    <insert id="insertVector" parameterType="com.trillionstar.entity.Vector">
+        insert into vetor.vector (v_vectorid, v_name, v_endtime, v_description, v_islive, v_isanyo, v_updatetime, v_ispublic, v_status, v_imgurl,v_isbin)
+        VALUES (#{v_vectorid},#{v_name},#{v_endtime},#{v_description},#{v_islive},#{v_isanyo},#{v_updatetime},#{v_ispublic},#{v_status},#{v_imgurl},#{v_isbin})
+    </insert>
+
+    <update id="updateVector" parameterType="com.trillionstar.entity.Vector">
+        update vetor.vector
+    <set>
+        <if test="v_name != null">
+            v_name = #{v_name},
+        </if>
+        <if test="v_endtime != null">
+            v_endtime = #{v_endtime},
+        </if>
+        <if test="v_description != null">
+            v_description = #{v_description},
+        </if>
+        <if test="v_islive != null">
+            v_islive = #{v_islive},
+        </if>
+        <if test="v_isanyo != null">
+            v_isanyo = #{v_isanyo},
+        </if>
+        <if test="v_updatetime != null">
+            v_updatetime = #{v_updatetime},
+        </if>
+        <if test="v_ispublic != null">
+            v_ispublic = #{v_ispublic},
+        </if>
+        <if test="v_status != null">
+            v_status = #{v_status},
+        </if>
+        <if test="v_imgurl != null">
+            v_imgurl = #{v_imgurl},
+        </if>
+        <if test="v_isbin != null">
+            v_isbin = #{v_isbin},
+        </if>
+        <if test="v_result != null">
+            v_result = #{v_result},
+        </if>
+        <if test="v_result_reference != null">
+            v_result_reference = #{v_result_reference}
+        </if>
+    </set>
+        where v_vectorid = #{v_vectorid}
+    </update>
+
+    <update id="updateVectorStatus" parameterType="map">
+        update vetor.vector
+        <set>
+            <if test="v_updatetime != null">
+                v_updatetime = #{v_updatetime},
+            </if>
+            <if test="v_status != null">
+                v_status = #{v_status}
+            </if>
+        </set>
+        where v_vectorid = #{v_vectorid}
+    </update>
+
+    <update id="updateOne" parameterType="map">
+        update vetor.vector
+        <set>
+            <if test="v_imgurl != null">
+                v_imgurl = #{v_imgurl}
+            </if>
+        </set>
+        where v_vectorid = #{v_vectorid}
+    </update>
+
+    <select id="queryOwner" resultType="com.trillionstar.entity.Vector" parameterType="map">
+        select * from vetor.vector,vetor.owner where v_vectorid = o_vetorid and o_userid = #{o_userid}
+        <if test="v_status != null">
+            and v_status = #{v_status}
+        </if>
+        <if test="v_isbin != null">
+            and v_isbin = #{v_isbin}
+        </if>
+        order by v_updatetime
+    </select>
+
+    <select id="queryJoin" resultType="com.trillionstar.entity.Vector">
+        select * from vetor.vector,vetor.join where v_vectorid = `join`.j_vectorid and j_userid = #{j_userid}
+        <if test="isjoined">
+            and j_result != '99'
+        </if>
+        <if test="!isjoined">
+            and j_result = '99'
+        </if>
+    </select>
+
+    <select id="queryJoinPeos" resultType="com.trillionstar.view.People">
+        select u_username,u_imageurl,j_result,j_weight,u_userid from vetor.vector,vetor.user,vetor.`join`
+        where vector.v_vectorid=#{v_vectorid} and v_vectorid = `join`.j_vectorid and j_userid = user.u_userid
+    </select>
+
+    <select id="queryCover" resultType="com.trillionstar.view.VectorCover" parameterType="map">
+        select v_vectorid,v_name,v_imgurl,v_endtime,v_updatetime,count(j_vectorid) as join_count
+        from vetor.vector
+        left join vetor.`join`
+        on v_vectorid = j_vectorid and v_ispublic = 1 and v_status = 2
+        group by v_vectorid
+        <if test="v_updatetime != null">
+            order by #{v_updatetime} asc
+        </if>
+        <if test="v_endtime != null">
+            order by #{v_endtime} asc
+        </if>
+        <if test="join_count != null">
+            order by #{join_count} desc
+        </if>
+    </select>
+    <update id="putBin" parameterType="string">
+        update vector set v_isbin = #{v_isbin} where v_vectorid = #{v_vectorid}
+    </update>
+</mapper>

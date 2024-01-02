@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trillionstar.mapper.CandidateMapper">
+
+    <insert id="insertCandidate" parameterType="java.util.List">
+        insert into vetor.candidate (c_name, c_introduce, c_imageurl, c_vectorid, c_candidateid)
+        VALUES
+        <foreach collection="candidateList" item="item" separator=",">
+            (#{item.c_name},#{item.c_introduce},#{item.c_imageurl},#{item.c_vectorid},#{item.c_candidateid})
+        </foreach>
+    </insert>
+
+    <insert id="insertOneCandidate" parameterType="com.trillionstar.entity.Candidate">
+        insert into vetor.candidate (c_name, c_introduce, c_imageurl, c_vectorid, c_candidateid)
+        VALUES (#{c_name},#{c_introduce},#{c_imageurl},#{c_vectorid},#{c_candidateid})
+    </insert>
+
+    <delete id="deleteCandidate" parameterType="map">
+        delete from vetor.candidate
+        <where>
+            <if test="c_vectorid != null">
+               and c_vectorid = #{c_vectorid}
+            </if>
+            <if test="c_candidateid != null">
+                and c_candidateid = #{c_candidateid}
+            </if>
+        </where>
+    </delete>
+
+    <update id="updateCandidate" parameterType="com.trillionstar.entity.Candidate">
+        update vetor.candidate
+        <set>
+            <if test="c_name != null">
+                c_name = #{c_name},
+            </if>
+            <if test="c_introduce != null">
+                c_introduce = #{c_introduce},
+            </if>
+            <if test="c_imageurl != null">
+                c_imageurl = #{c_imageurl},
+            </if>
+            <if test="c_candidateid != null">
+                c_candidateid = #{c_candidateid},
+            </if>
+        </set>
+        where c_vectorid = #{c_vectorid} and c_candidateid = #{c_candidateid}
+    </update>
+
+    <select id = "queryByParams" parameterType="map" resultType="com.trillionstar.entity.Candidate">
+        select * from vetor.candidate where c_vectorid = #{c_vectorid} order by c_index
+    </select>
+
+    <select id="queryIdByParams" parameterType="map" resultType="String">
+        select c_candidateid from vetor.candidate where c_vectorid = #{c_vectorid} order by c_index
+    </select>
+</mapper>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trillionstar.mapper.ImageMapper">
+    <insert id="insertImage" parameterType="com.trillionstar.entity.Image">
+        insert into vetor.image (i_imageurl, i_imgpath)
+        VALUES (#{i_imageurl},#{i_imgpath})
+    </insert>
+
+    <select id="queryImagePath" resultType="string">
+        select vetor.image.i_imgpath from vetor.image where i_imageurl = #{i_imageurl}
+    </select>
+
+    <delete id="delImage">
+        delete from vetor.image where i_imageurl = #{i_imageurl}
+    </delete>
+</mapper>

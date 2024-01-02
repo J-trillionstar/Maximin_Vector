@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trillionstar.mapper.UserMapper">
+    <!--
+        select 查询语句
+        id 方法名
+        resultType 返回类型
+    -->
+    <select id="queryByparams" resultType="com.trillionstar.entity.User" parameterType="map">
+        select * from vetor.user
+        <where>
+            <if test="u_phone != null">
+                and u_phone = #{u_phone}
+            </if>
+            <if test="u_openid != null">
+                and u_openid = #{u_openid}
+            </if>
+        </where>
+    </select>
+
+    <update id="updateUser" parameterType="map">
+        update vetor.user
+        <set>
+            <if test="u_loginat != null">
+                u_loginat = #{u_loginat},
+            </if>
+            <if test="u_updateat != null">
+                u_updateat = #{u_updateat},
+            </if>
+            <if test="u_username != null">
+                u_username = #{u_username},
+            </if>
+            <if test="u_password != null">
+                u_password = #{u_password}，
+            </if>
+            <if test="u_imageurl != null">
+                u_imageurl = #{u_imageurl}
+            </if>
+        </set>
+        <where>
+            <if test="u_phone != null">
+                or u_phone = #{u_phone}
+            </if>
+            <if test="u_openid != null">
+                or u_openid = #{u_openid}
+            </if>
+        </where>
+    </update>
+
+    <insert id="insertUser" parameterType="com.trillionstar.entity.User">
+        insert into vetor.user (u_userid, u_username, u_imageurl, u_password, u_openid, u_createat, u_updateat, u_phone,
+                                u_loginat)
+        VALUES (#{u_userid}, #{u_username}, #{u_imageurl}, #{u_password}, #{u_openid}, #{u_createat}, #{u_updateat},
+                #{u_phone}, #{u_loginat})
+    </insert>
+
+    <delete id="deleteWechat" parameterType="String">
+        delete
+        from vetor.user
+        where u_openid = #{u_openid}
+    </delete>
+</mapper>

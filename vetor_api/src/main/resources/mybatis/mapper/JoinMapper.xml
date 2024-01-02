@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trillionstar.mapper.JoinMapper">
+    <insert id="insertJoin" parameterType="com.trillionstar.entity.Join">
+        insert into vetor.join (j_vectorid, j_userid, j_weight, j_result)
+        VALUES (#{j_vectorid},#{j_userid},#{j_weight},#{j_result})
+    </insert>
+
+    <select id="queryJoin" resultType="com.trillionstar.entity.Join">
+        select * from `join` where j_vectorid = #{j_vectorid}
+    </select>
+
+    <update id="updateRes" parameterType="string">
+        update vetor.`join` set j_result = #{j_result} where j_userid = #{j_userid} and j_vectorid = #{j_vectorid}
+    </update>
+
+    <update id="updateWei">
+        update vetor.`join` set
+        <if test="j_weight != 1">
+        j_weight = #{j_weight}
+        </if>
+        where j_userid = #{j_userid} and j_vectorid = #{j_vectorid}
+    </update>
+
+    <select id="isJoined" resultType="com.trillionstar.entity.Join">
+        select * from vetor.`join`,vetor.vector where j_result != '99' and j_vectorid = vector.v_vectorid
+        <if test="j_userid != null">
+            and j_userid = #{j_userid}
+        </if>
+        <if test="j_vectorid != null">
+            and j_vectorid = #{j_vectorid}
+        </if>
+    </select>
+</mapper>
